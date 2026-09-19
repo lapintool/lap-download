@@ -1,0 +1,279 @@
+html,
+body,
+#app {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: inherit;
+  background: var(--ls-bg);
+  color: var(--ls-text);
+}
+
+.app-shell {
+  display: grid;
+  grid-template-rows: 40px minmax(0, 1fr) 28px;
+  height: 100%;
+  background: var(--ls-bg);
+  color: var(--ls-text);
+}
+
+.titlebar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 8px 0 14px;
+  border-bottom: 1px solid var(--ls-border);
+  background: var(--ls-bg-elevated);
+  -webkit-app-region: drag;
+  app-region: drag;
+  user-select: none;
+}
+
+.titlebar .brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  font-size: 14px;
+}
+
+.titlebar .brand-logo {
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.titlebar .spacer {
+  flex: 1;
+}
+
+.titlebar .no-drag,
+.titlebar .window-controls,
+.titlebar button {
+  -webkit-app-region: no-drag;
+  app-region: no-drag;
+}
+
+.titlebar-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.window-controls {
+  display: flex;
+  height: 100%;
+}
+
+.window-controls button {
+  width: 46px;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  display: grid;
+  place-items: center;
+  cursor: default;
+}
+
+.window-controls button:hover {
+  background: color-mix(in srgb, var(--ls-text) 10%, transparent);
+}
+
+.window-controls button.close:hover {
+  background: #e81123;
+  color: #fff;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  min-height: 0;
+}
+
+.workspace {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  min-width: 0;
+  min-height: 0;
+  border-right: 1px solid var(--ls-border);
+}
+
+.compose {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  padding: 12px 14px;
+  align-items: start;
+}
+
+.compose textarea {
+  width: 100%;
+  min-height: 72px;
+  max-height: 160px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.compose-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 140px;
+}
+
+.task-list {
+  min-height: 0;
+  overflow: auto;
+  padding: 0 14px 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+.task-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 148px;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--ls-border);
+}
+
+.task-main {
+  min-width: 0;
+}
+
+.task-url {
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0.95;
+}
+
+.task-meta {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--ls-text-dim);
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.task-main .ls-progress {
+  margin-top: 8px;
+}
+
+.task-actions {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px;
+  min-height: 0;
+  overflow: auto;
+}
+
+.side-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.side-head h2 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.side .hint {
+  margin: 0;
+  font-size: 12px;
+  opacity: 0.65;
+  line-height: 1.45;
+}
+
+.field-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dir-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.dir-row .ls-input {
+  flex: 1;
+}
+
+.status-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 14px;
+  font-size: 12px;
+  border-top: 1px solid var(--ls-border);
+  opacity: 0.85;
+}
+
+.status-bar .grow {
+  flex: 1;
+}
+
+.empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 24px 12px;
+  min-height: 0;
+  text-align: center;
+}
+
+.empty-logo {
+  width: min(280px, 48%);
+  max-height: min(280px, 52%);
+  object-fit: contain;
+  border-radius: 18px;
+  user-select: none;
+  pointer-events: none;
+}
+
+.empty-caption {
+  margin: 0;
+  font-size: 13px;
+  color: var(--ls-text-dim);
+}
+
+.err {
+  color: var(--ls-danger);
+  font-size: 12px;
+}
+
+@media (max-width: 900px) {
+  .main {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(0, 1fr) auto;
+  }
+  .workspace {
+    border-right: 0;
+    border-bottom: 1px solid var(--ls-border);
+  }
+  .side {
+    max-height: 280px;
+  }
+}

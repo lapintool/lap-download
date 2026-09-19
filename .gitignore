@@ -1,0 +1,54 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Runtime portable dirs (created next to the app)
+/config/
+/data/
+/downloads/
+
+# Design dumps / scratch, not shipped
+/assets/
+
+# Vite / Tauri scaffold leftovers
+public/tauri.svg
+public/vite.svg
+
+# Windows-only NSIS: skip mobile / Appx icon dumps
+src-tauri/icons/android/
+src-tauri/icons/ios/
+src-tauri/icons/Square*.png
+src-tauri/icons/StoreLogo.png
+
+# Rust / Tauri
+src-tauri/target
+src-tauri/gen/schemas
+
+# Editors / IDEs
+.vscode/
+.cursor/
+.idea/
+.vs/
+*.code-workspace
+*.iml
+*.sw?
+*.lnk
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Download leftovers
+*.part
+*.lapdwstate
+*.lapdwurl
